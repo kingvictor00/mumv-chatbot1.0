@@ -10,3 +10,5 @@ sentence-transformers
 youtube-transcript-api
 beautifulsoup4
 pytube
+playwright
+langchain-community[playwright]
