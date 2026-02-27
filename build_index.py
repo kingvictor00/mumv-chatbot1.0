@@ -1,5 +1,6 @@
 import os
 from langchain_community.document_loaders import WebBaseLoader, YoutubeLoader
+from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
@@ -11,11 +12,13 @@ os.environ["USER_AGENT"] = "MumV-Chatbot/1.0 (personal project)"
 print("Starting offline index build...")
 
 sources = [
-    "https://docs.getoptimum.xyz/",
-    "https://www.getoptimum.xyz/",
-    "https://x.com/get_optimum",
-    "https://mirror.xyz/0xBfAC4db6d990A6cF9842f437345c447B18EbeF73",
-    "https://cryptorank.io/price/optimum"
+    "https://docs.getoptimum.xyz/",                          # intro
+    "https://docs.getoptimum.xyz/docs/learn/overview/deram", # DeRAM explanation
+    "https://docs.getoptimum.xyz/docs/learn/overview/p2p",   # mump2p protocol
+    "https://www.getoptimum.xyz/",                           # homepage
+    "https://www.getoptimum.xyz/mump2p",                     # mump2p page
+    "https://docs.getoptimum.xyz/docs/research/overview",    # technical papers
+    "https://cryptorank.io/price/optimum"                    # price/funding if relevant
 ]
 youtube_url = "https://www.youtube.com/watch?v=nLfegqPLY3o"
 
